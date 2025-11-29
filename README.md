@@ -16,9 +16,9 @@ base_url = "https://qry.nfu.edu.tw/"
 * ✔ 禁用 sandbox（常用於 Linux 主機）
 * ✔ 禁用圖片載入（加速爬蟲查詢流程）
 
-最重要的是：
-prefs = {"profile.managed_default_content_settings.images": 2}
-➡關閉圖片載入，讓 Selenium 執行更快。
+最重要的是：  
+prefs = {"profile.managed_default_content_settings.images": 2}  
+➡關閉圖片載入，讓 Selenium 執行更快。  
 # 此函式每次建立 driver 前都會被呼叫。
 
 🟦 3. fetch_source_select_options()
