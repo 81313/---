@@ -1,0 +1,16 @@
+<!-- templates/menu.html -->
+<form id="queryForm">
+    <label for="year">學年期：</label>
+    <select id="year" name="year">
+        {% for y in years %}
+        <option value="{{ y.value }}">{{ y.label }}</option>
+        {% endfor %}
+    </select>
+    <label for="room">教室：</label>
+    <select id="room" name="room">
+        {% for r in rooms %}
+        <option value="{{ r.value }}">{{ r.label }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">查詢</button>
+</form>
