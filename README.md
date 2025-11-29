@@ -1,19 +1,19 @@
-🟦 1. 基礎設定
+# 🟦 1. 基礎設定
 
 app = Flask(__name__)
 base_url = "https://qry.nfu.edu.tw/"
 
-建立 Flask Web 伺服器
-base_url用於補齊原網站上相對路徑的CSS或連結（因為官方網站的 CSS 大多是相對路徑，如果不修正會導致前端顯示錯誤）
+**建立 Flask Web 伺服器**
+**base_url用於補齊原網站上相對路徑的CSS或連結（因為官方網站的 CSS 大多是相對路徑，如果不修正會導致前端顯示錯誤）**
 
 🟦 2. get_chrome_options() ─ 設定 Selenium 的 ChromeDriver
 此函式負責建立 Chrome 無頭模式設定。
 
 包含：
-✔ 無頭模式（不開視窗）
-✔ 禁用 GPU
-✔ 禁用 sandbox（常用於 Linux 主機）
-✔ 禁用圖片載入（加速爬蟲查詢流程）
+* ✔ 無頭模式（不開視窗）
+* ✔ 禁用 GPU
+* ✔ 禁用 sandbox（常用於 Linux 主機）
+* ✔ 禁用圖片載入（加速爬蟲查詢流程）
 
 最重要的是：
 prefs = {"profile.managed_default_content_settings.images": 2}
