@@ -31,16 +31,15 @@ prefs = {"profile.managed_default_content_settings.images": 2}
    因為官方網站含大量JS，因此不能單純用requests，必須用Selenium。
 * 🔹Step 2: 等待兩個主要元素出現
     `
-    學年 #selyr
+    學年 #selyr  
     教室 #selclssroom
     `
     確保 JS 載入完成。
-* 🔹Step 3: 抓下拉選單 HTML
+* 🔹Step 3: 抓下拉選單 HTML(取得整份 <option> 的 HTML，而非單純文字內容。)
 ```
 year_html = driver.find_element(...).get_attribute("innerHTML")
 room_html_raw = driver.find_element(...).get_attribute("innerHTML")
 ```
-###### 取得整份 <option> 的 HTML，而非單純文字內容。
 
 * 🔹 Step 4: 篩選教室選項，只保留 BGA03、BGA04、BGA05
 因為這個網站是用來查「綜合工程一館」三樓~五樓的教室，因此在程式指定只留下：
@@ -58,9 +57,9 @@ https://qry.nfu.edu.tw/css/style.css
 
 * 🔹 Step 6: 回傳 JSON 給前端模板
 包含：
-* 1.年度 <option> HTML
-* 2.篩選後的教室 <option> HTML
-* 3.修正後的 <head> CSS 內容
+    * 1.年度 <option> HTML
+    * 2.篩選後的教室 <option> HTML
+    * 3.修正後的 <head> CSS 內容
 
 # 🟦 4. fetch_table_html(year, room)
 用途：接受使用者選擇的學年/教室，向原網站查詢該教室的課表
@@ -100,10 +99,9 @@ table_html = table_element.get_attribute("outerHTML")
 ```
 * 🔹 7. 修正 head 的 CSS 連結成絕對路徑
 同上處理流程。
-* 🔹 8. 修正表格內所有 <a href=""> 的連結
+* 🔹 8. 修正表格內所有`<a href="">`的連結
     例如：href="teacher.php?id=123"
     會變成：https://qry.nfu.edu.tw/teacher.php?id=123
-
 * 🔹 9. 回傳資料給前端
 包含 head 與 table 兩部分。
 
@@ -125,7 +123,7 @@ if not (room.startswith("BGA03") or ...):
 ```
 * 3.呼叫 fetch_table_html()
 * 4.回傳 JSON 給前端
-* 🟦 7. 最後的執行條件
+# 🟦 7. 最後的執行條件
 ```
 if __name__ == "__main__":
     app.run(debug=True)
